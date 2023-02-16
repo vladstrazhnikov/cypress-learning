@@ -11,7 +11,7 @@ describe('Elements', () => {
     cy.visit('/')
   });
 
-  it('Text box', () => {
+  it('Textbox', () => {
     cy.log('Navigate to textbox page');
     mainPage.clickElementsButton;
     mainPage.clickTextBoxButton;
@@ -24,4 +24,10 @@ describe('Elements', () => {
     textBoxPage.currentAddressText.contains('Current Address :' + user.currentAddress).should('be.visible');
     textBoxPage.permanentAddressText.contains('Permananet Address :' + user.permanentAddress).should('be.visible');
   });
+
+  it.only('Checkbox', () => {
+    cy.log('Navigate to checkbox page');
+    mainPage.clickElementsButton;
+    mainPage.clickCheckBoxButton
+  })
 })

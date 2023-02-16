@@ -5,7 +5,12 @@ export class MainPage {
     }
 
     get clickTextBoxButton(): this {
-        cy.get('.element-group:first-of-type #item-0').click();
+        cy.getbyItem('0').click();
+        return this;
+    }
+
+    get clickCheckBoxButton(): this {
+        cy.getbyItem('1').click();
         return this;
     }
 }

@@ -35,3 +35,6 @@
 //     }
 //   }
 // }
+Cypress.Commands.add('getbyItem', (selector) => {
+    return cy.get(`.element-group:first-of-type #item-${selector}`);
+});
