@@ -13,4 +13,9 @@ export class MainPage {
         cy.getbyItem('1').click();
         return this;
     }
+
+    get clickRadioButtonButton(): this {
+        cy.getbyItem('2').click();
+        return this;
+    }
 }

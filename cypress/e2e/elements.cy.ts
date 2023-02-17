@@ -2,11 +2,13 @@ import { TextBoxPage } from "../pages/textBox.page";
 import { user } from "../fixtures/user";
 import { MainPage } from "../pages/main.page";
 import { CheckboxPage } from "../pages/checkbox.page";
+import { RadioButtonPage } from "../pages/radioButton.page";
 
 describe('Elements', () => {
   const textBoxPage = new TextBoxPage();
   const mainPage = new MainPage();
   const checkboxPage = new CheckboxPage();
+  const radioButtonPage = new RadioButtonPage();
 
   beforeEach(() => {
     cy.once('uncaught:exception', () => false);
@@ -48,6 +50,18 @@ describe('Elements', () => {
       for (let key in selectedText) {
         cy.wrap(text[key]).contains(selectedText[key])
       }
-    });
+    })
   });
-})
+
+  it.only('Radio button', () => {
+    let text = 'You have selected Impressive';
+    let textColour = 'rgb(40, 167, 69)';
+    cy.log('Navigate to radio button page');
+    mainPage.clickElementsButton;
+    mainPage.clickRadioButtonButton;
+    radioButtonPage.impressiveRadioButton.click();
+    radioButtonPage.getTextSuccess(text);
+    radioButtonPage.selectedTextRadioButton.should('have.css', 'color', textColour);
+    radioButtonPage.noRadioButton.should('be.disabled');
+  });
+});
