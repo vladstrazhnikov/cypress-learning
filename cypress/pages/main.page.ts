@@ -18,4 +18,19 @@ export class MainPage {
         cy.getbyItem('2').click();
         return this;
     }
+
+    get clickButtonsButton(): this {
+        cy.getbyItem('4').click();
+        return this;
+    }
+
+    get clickLinksButton(): this {
+        cy.getbyItem('5').click();
+        return this;
+    }
+
+    get clickBrokenLinksButton(): this {
+        cy.getbyItem('6').click();
+        return this;
+    }
 }
