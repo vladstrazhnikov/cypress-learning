@@ -91,7 +91,7 @@ describe('Elements', () => {
     cy.wait('@created').its('response.statusCode').should('eq', 201);
   });
 
-  it.only('broken image - links', () => {
+  it('broken image - links', () => {
     cy.log('Navigate to radio button page');
     mainPage.clickElementsButton;
     mainPage.clickBrokenLinksButton;
@@ -101,27 +101,27 @@ describe('Elements', () => {
     //   .should('be.visible')
     //   .and('have.prop', 'naturalWidth')
     //   .should('be.greaterThan', 0);
-  // });
+    // });
 
-  cy.log('Verify that links is displayed')
-  // const links = cy.get('.row a');
-  cy.get('.row a').invoke('attr', 'href').then((hrefs) => {
-    // Log the array of hrefs to the console
-    console.log(hrefs);
-  });
-  // Select all links on the page
-  cy.get('a').each(($el) => {
-    // Get the href attribute of each link
-    const href = $el.prop('href');
-    // Skip links without an href attribute
-    if (!href) {
-      return;
-    }
-    // Send an HTTP request to the link and check the status code
-    cy.request(href).then((resp) => {
-      expect(resp.status).to.equal(200);
+    cy.log('Verify that links is displayed')
+    // const links = cy.get('.row a');
+    cy.get('.row a').invoke('attr', 'href').then((hrefs) => {
+      // Log the array of hrefs to the console
+      console.log(hrefs);
     });
-  });
-    
+    // Select all links on the page
+    cy.get('a').each(($el) => {
+      // Get the href attribute of each link
+      const href = $el.prop('href');
+      // Skip links without an href attribute
+      if (!href) {
+        return;
+      }
+      // Send an HTTP request to the link and check the status code
+      cy.request(href).then((resp) => {
+        expect(resp.status).to.equal(200);
+      });
+    });
+
   });
 });
